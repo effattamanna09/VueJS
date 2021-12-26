@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <input type="text" name="input" id="input" v-model="message" />
+      <input type="text" name="input" id="input" v-model="others" />
+      <p>This is a paragraph {{message}}</p>
+      <p>This is a Test project {{others}}</p>
+    </div>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+
+    <script>
+      new Vue({
+        el: "#root",
+        data: {
+          message: "Hello World",
+          others: "This is test Project",
+        },
+      });
+    </script>
+  </body>
+</html>
