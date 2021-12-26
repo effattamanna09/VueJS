@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>List</title>
-    </head>
-    <body>
-        <div id="root">
-            <ul>
-                <li v-for="name in names" v-text="name"></li>
-            </ul>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-        <input type="text" name="" id="input" />
-    <button id="button">Insert</button>
+  <body>
+    <div id="root">
+      <ul>
+        <li v-for="name in names" v-text="name"></li>
+      </ul>
+      <input type="text" name="" id="input" v-model="new_name" />
+      <button @click="addName">Insert</button>
+    </div>
 
-        <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
-        <script>
-       let app = new Vue({
-            el: '#root',
-            data:{
-                names: ['effat', 'tamanna','toma']
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
 
-            },
-            mounted() {
-                document.querySelector("#button").addEventListener("click", () => {
-                    let name = document.querySelector("#input");
-                        app.names.push(name.value);
-                        name.value = "";
+    <script>
+      new Vue({
+        el: "#root",
+        data: {
+          new_name: "",
+          names: ["joe", "jane", "marry", "jack"],
+        },
 
-                })
+        methods: {
+          addName() {
+            this.names.push(this.new_name);
+            this.new_name = "";
+          },
+        },
 
-                
-            },
-
-        })
+        // mounted() {
+        //   document.querySelector("#button").addEventListener("click", () => {
+        //     let name = document.querySelector("#input");
+        //     app.names.push(name.value);
+        //     name.value = "";
+        //   });
+        // },
+      });
     </script>
-    </body>
+  </body>
 </html>
